@@ -1,16 +1,59 @@
-# This is a sample Python script.
+# include <tgmath.h>
+# include <string>
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# include <iostream>
+# include <stdlib.h>
+# include <vector>
 
+using
+namespace
+std;
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+void
+clearScreen()
+{
+    printf("\033[2J" "\033[1;1H");
+}
 
+int
+main()
+{
+    clearScreen();
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+vector < int > categoriesValues;
+cout << "How many assignments do you have? ";
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+int
+assignmentCount;
+cin >> assignmentCount;
+cout << "How many points per assignment? ";
+
+int
+pointsPerAssignment;
+cin >> pointsPerAssignment;
+
+int
+totalPoints = pointsPerAssignment * assignmentCount;
+int
+totalGrade = 0;
+
+for (int i = 1; i <= assignmentCount; i++)
+{
+    cout << "what was your grade for number " << i << "? ";
+int
+grade;
+cin >> grade;
+totalGrade += grade;
+cout << totalGrade << endl;
+}
+
+cout << assignmentCount << endl;
+cout << totalPoints << endl;
+
+int
+finalGrade = (totalGrade / totalPoints) * 100;
+// cout << endl << finalGrade << "%" << endl;
+cout << (totalGrade / totalPoints) * 100 << "%" << endl;
+
+return 0;
+}
