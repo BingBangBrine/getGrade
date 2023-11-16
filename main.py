@@ -1,59 +1,24 @@
-# include <tgmath.h>
-# include <string>
+assignmentType = []
 
-# include <iostream>
-# include <stdlib.h>
-# include <vector>
+assignmentCount = int(input("How many assignment types do you have? "))
+totalWeight = 0
+weightedGrade = 0
 
-using
-namespace
-std;
+for j in range(assignmentCount):
+    print(f'For assignment type {j+1}:')
+    weight = int(input(f'What is the weight of the assignment category? (percent) '))
+    assignmentCount = int(input(f"How many assignments do you have? "))
+    pointsPerAssignment = int(input("How many points per assignment? "))
 
-void
-clearScreen()
-{
-    printf("\033[2J" "\033[1;1H");
-}
+    totalWeight += weight
+    totalPoints = assignmentCount * pointsPerAssignment
+    totalGrade = 0
+    for i in range(assignmentCount):
+        totalGrade += float(input(f"What was your grade for assignment number {i+1}? "))
 
-int
-main()
-{
-    clearScreen();
+    finalGrade = (totalGrade / totalPoints) * 100
+    print(f'This categories grade is {finalGrade:.2f}% which is {weight}% of your grade for assignment number {j+1}.')
+    weightedGrade += (finalGrade * weight)
 
-vector < int > categoriesValues;
-cout << "How many assignments do you have? ";
-
-int
-assignmentCount;
-cin >> assignmentCount;
-cout << "How many points per assignment? ";
-
-int
-pointsPerAssignment;
-cin >> pointsPerAssignment;
-
-int
-totalPoints = pointsPerAssignment * assignmentCount;
-int
-totalGrade = 0;
-
-for (int i = 1; i <= assignmentCount; i++)
-{
-    cout << "what was your grade for number " << i << "? ";
-int
-grade;
-cin >> grade;
-totalGrade += grade;
-cout << totalGrade << endl;
-}
-
-cout << assignmentCount << endl;
-cout << totalPoints << endl;
-
-int
-finalGrade = (totalGrade / totalPoints) * 100;
-// cout << endl << finalGrade << "%" << endl;
-cout << (totalGrade / totalPoints) * 100 << "%" << endl;
-
-return 0;
-}
+actualGrade = (weightedGrade/totalWeight)
+print(f'Your actual grade is {actualGrade:.2f}%. You have {totalWeight}% out of 100% for the grade weight.')
